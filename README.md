@@ -1,49 +1,91 @@
-# Lightning to PyTorch: CIFAR-10 Classifier Comparison
+# CIFAR-10 Classifier with PyTorch & Lightning
 
-This project is part of my preparation for a **Research Engineer role in alignment science**. The notebook provides a detailed comparison between:
-
-- ✅ **PyTorch Lightning** — high-level, production-ready framework
-- 🧠 **Vanilla PyTorch** — low-level manual implementation
-
-The goal was to **deeply understand what PyTorch Lightning abstracts** by:
-- Rebuilding the same CIFAR-10 training pipeline in both styles
-- Annotating every component
-- Comparing performance, readability, and workflow differences
+This project compares **vanilla PyTorch** and **PyTorch Lightning** implementations of a CNN trained on the CIFAR-10 dataset — a hands-on deep learning project designed to bridge classic machine learning with more modern, scalable frameworks.
 
 ---
 
-## 🧪 Objectives
+## Getting Started
 
-- Develop fluency in PyTorch and PyTorch Lightning internals
-- Understand Lightning's modular structure (`LightningModule`, `Trainer`, `DataModule`)
-- Practice clear model training, evaluation, and logging
-- Document learnings for future reference and reproducibility
+### 1. Clone the repository
+
+bash
+git clone https://github.com/reneking-tech/cifar10-lightning.git
+cd cifar10-lightning
+
+### 2. Create and activate a virtual environment
+
+bash
+python -m venv .venv
+source .venv/bin/activate  # macOS/Linux
+.venv\Scripts\activate     # Windows
+
+
+### 3. Install dependencies
+
+bash
+pip install -r requirements.txt
+
+
+### 4. Run the notebook
+
+bash
+jupyter notebook notebooks/cifar10_classifier.ipynb
+
 
 ---
 
-## 🧠 Notebook Contents
+## 🧠 What You'll Learn
 
-The notebook is structured in two parts:
-
-### 🔹 Part 1: Vanilla PyTorch
-- Define transforms and load CIFAR-10 dataset
-- Build a custom `SimpleCNN` using `torch.nn`
-- Implement a manual training/validation loop
-- Evaluate model accuracy and loss on a separate test set
-
-### ⚡ Part 2: PyTorch Lightning
-- Wrap the same CNN inside a `LightningModule`
-- Modularize data using `LightningDataModule`
-- Use `Trainer.fit()` and `Trainer.test()` to automate training/evaluation
-- Compare output, structure, and performance
+* How to structure a training loop from scratch with PyTorch
+* How to simplify and scale with PyTorch Lightning
+* Key CNN components: Conv2D, MaxPooling, ReLU, Linear
+* Validation vs test separation, metrics, and model saving
+* How modularity improves reusability and reproducibility
 
 ---
 
-## 🔍 Key Learnings
+## Features
 
-- Lightning drastically simplifies training logic and experiment tracking
-- Manual PyTorch teaches deeper control, which improves debugging skills
-- `LightningDataModule` is ideal for reuse and cleaner separation of concerns
-- Performance was comparable; structure and maintainability greatly improved in Lightning
+* ✅ CNN from scratch in PyTorch
+* ⚡ LightningModule reimplementation
+* 📊 Model evaluation and accuracy tracking
+* 💾 Model saving and test evaluation
+* 🧼 Project structured for clarity (`notebooks/`, `models/`, `scripts/`)
 
+---
 
+## 📂 Project Structure
+
+```
+├── notebooks/           # Jupyter notebook experiments
+├── scripts/             # Helper scripts (data prep, tools)
+├── models/              # Trained model weights
+├── requirements.txt     # Project dependencies
+├── README.md            # You're here
+```
+
+---
+
+## References
+
+* [PyTorch Docs](https://pytorch.org/docs/stable/index.html)
+* [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/)
+* [CIFAR-10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html)
+* [Andrew Ng’s Machine Learning Specialization](https://www.coursera.org/specializations/machine-learning-introduction)
+
+---
+
+## 🔖 License
+
+MIT License © 2025 René King
+
+---
+
+## Acknowledgements
+
+This project was part of a self-guided transition from classical ML into deep learning and AI safety engineering. It was about understanding, structuring, and learning — not achieving SOTA accuracy.
+
+---
+
+![Made with PyTorch](https://img.shields.io/badge/Made%20with-PyTorch-red)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
