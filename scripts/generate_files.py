@@ -29,7 +29,7 @@ target-version = ['py311']
 
 [tool.isort]
 profile = "black"
-"""
+""",
 }
 
 # Create each file
