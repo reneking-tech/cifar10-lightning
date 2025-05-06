@@ -1,91 +1,77 @@
-# CIFAR-10 Classifier with PyTorch & Lightning
+# 🧠 CIFAR-10 Classifier: From PyTorch to Lightning
 
-This project compares **vanilla PyTorch** and **PyTorch Lightning** implementations of a CNN trained on the CIFAR-10 dataset — a hands-on deep learning project designed to bridge classic machine learning with more modern, scalable frameworks.
+This project demonstrates how to build and train a simple Convolutional Neural Network (CNN) on the CIFAR-10 image classification dataset using both **vanilla PyTorch** and **PyTorch Lightning**.
 
----
-
-## Getting Started
-
-### 1. Clone the repository
-
-bash
-git clone https://github.com/reneking-tech/cifar10-lightning.git
-cd cifar10-lightning
-
-### 2. Create and activate a virtual environment
-
-bash
-python -m venv .venv
-source .venv/bin/activate  # macOS/Linux
-.venv\Scripts\activate     # Windows
-
-
-### 3. Install dependencies
-
-bash
-pip install -r requirements.txt
-
-
-### 4. Run the notebook
-
-bash
-jupyter notebook notebooks/cifar10_classifier.ipynb
-
+It was created as a practical, hands-on learning journey after completing Andrew Ng's Machine Learning Specialization. The goal: go from foundational ML understanding to real model implementation and training.
 
 ---
 
-## 🧠 What You'll Learn
+## 🚀 What’s Inside
 
-* How to structure a training loop from scratch with PyTorch
-* How to simplify and scale with PyTorch Lightning
-* Key CNN components: Conv2D, MaxPooling, ReLU, Linear
-* Validation vs test separation, metrics, and model saving
-* How modularity improves reusability and reproducibility
-
----
-
-## Features
-
-* ✅ CNN from scratch in PyTorch
-* ⚡ LightningModule reimplementation
-* 📊 Model evaluation and accuracy tracking
-* 💾 Model saving and test evaluation
-* 🧼 Project structured for clarity (`notebooks/`, `models/`, `scripts/`)
+- ✅ CIFAR-10 data loading with torchvision
+- 🧱 CNN architecture (`SimpleCNN`)
+- 🔁 Custom training + validation loops
+- ⚡ PyTorch Lightning module (`LitCNN`)
+- 📈 Loss/accuracy visualization
+- 💡 Reflections on overfitting + improvements
+- ✅ Pre-commit auto-formatting, notebook cleaning, code linting
 
 ---
 
-## 📂 Project Structure
+## 📊 Training Results
 
-```
-├── notebooks/           # Jupyter notebook experiments
-├── scripts/             # Helper scripts (data prep, tools)
-├── models/              # Trained model weights
-├── requirements.txt     # Project dependencies
-├── README.md            # You're here
-```
+### Vanilla PyTorch (5 Epochs)
 
----
+- Final **Train Acc:** ~98%
+- Final **Val Acc:** ~71%
+- ❗ Validation loss increased → signs of **overfitting**
 
-## References
+### PyTorch Lightning (5 Epochs)
 
-* [PyTorch Docs](https://pytorch.org/docs/stable/index.html)
-* [PyTorch Lightning](https://lightning.ai/docs/pytorch/stable/)
-* [CIFAR-10 Dataset](https://www.cs.toronto.edu/~kriz/cifar.html)
-* [Andrew Ng’s Machine Learning Specialization](https://www.coursera.org/specializations/machine-learning-introduction)
+- Final **Val Loss:** ~0.83
+- Final **Val Accuracy:** ~71.2%
+
+> 🔍 Same accuracy, but Lightning yielded a cleaner validation curve and easier setup.
 
 ---
 
-## 🔖 License
+## 🖼️ Training Curves
 
-MIT License © 2025 René King
+### 🔽 Loss
+
+![Training vs Validation Loss](notebooks/images/loss_plot.png)
+
+### 🔼 Accuracy
+
+![Training vs Validation Accuracy](notebooks/images/accuracy_plot.png)
+
+> _Outputs were stripped using pre-commit to keep this repo clean._
 
 ---
 
-## Acknowledgements
+## 🧠 Reflections
 
-This project was part of a self-guided transition from classical ML into deep learning and AI safety engineering. It was about understanding, structuring, and learning — not achieving SOTA accuracy.
+Despite strong training performance, the validation metrics suggest overfitting. This provides a clear path to improvement:
+
+- ✅ Add dropout layers
+- ✅ Use weight decay
+- ✅ Apply data augmentation (`RandomCrop`, `HorizontalFlip`)
+- ✅ Explore more expressive architectures or learning rate schedulers
 
 ---
 
-![Made with PyTorch](https://img.shields.io/badge/Made%20with-PyTorch-red)
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+## ✅ Pre-Commit Enabled
+
+![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?style=flat-square&logo=pre-commit)
+
+This project uses [`pre-commit`](https://pre-commit.com/) to ensure:
+- Clean `.ipynb` notebooks (`nbstripout`)
+- Consistent code style (`black`, `isort`)
+- Valid YAML + JSON
+- No trailing whitespace or newline issues
+
+To install:
+
+```bash
+pip install pre-commit
+pre-commit install
