@@ -1,0 +1,40 @@
+# Save the recommended .gitignore content to the user's project directory
+
+gitignore_content = """
+# Python environment
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Logs and weights
+*.pth
+lightning_logs/
+*.log
+
+# Datasets
+cifar-10-batches-py/
+*.tar.gz
+
+# macOS metadata
+.DS_Store
+._*
+
+# Pip, setup, tools
+get-pip.py
+setup_env.sh
+
+# URLs or temp
+URL:
+"""
+
+gitignore_path = "/mnt/data/.gitignore"
+
+with open(gitignore_path, "w") as f:
+    f.write(gitignore_content.strip())
+
+gitignore_path
