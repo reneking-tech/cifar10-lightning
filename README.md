@@ -46,7 +46,4 @@ The notebook is structured in two parts:
 - `LightningDataModule` is ideal for reuse and cleaner separation of concerns
 - Performance was comparable; structure and maintainability greatly improved in Lightning
 
----
-
-## 🧱 File Structure
 
